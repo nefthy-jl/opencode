@@ -106,7 +106,7 @@ export namespace Config {
         ...(proxied() || process.env.CI ? ["--no-cache"] : []),
       ],
       { cwd: dir },
-    ).catch((err) => {
+    ).catch((err: unknown) => {
       if (err instanceof Process.RunFailedError) {
         const detail = {
           dir,
